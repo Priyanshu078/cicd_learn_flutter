@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group("counter tests", () {
-    late final Counter counter;
+    late Counter counter;
     setUp(() {
       counter = Counter();
     });
