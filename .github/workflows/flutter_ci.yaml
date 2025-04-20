@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  check:
+  checkAndBuildApk:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
@@ -24,3 +24,6 @@ jobs:
 
     - name: Run tests
       run: flutter test
+
+    - name: Build Apk
+      run: flutter build apk
