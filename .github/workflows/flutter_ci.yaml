@@ -3,6 +3,8 @@ name: Flutter CI
 on:
   push:
     branches: [ main, test ]
+  pull_request:
+
 
 jobs:
   checkAndBuildApk:
@@ -27,4 +29,8 @@ jobs:
 
     - name: Build Apk (only on main branch)
       if: github.ref == 'refs/heads/main'
-      run: flutter build apk  
+      run: flutter build apk
+
+    - name: PR only Step
+      if: github.event_name == 'pull_request'
+      run: echo "This runs only on pull request"
