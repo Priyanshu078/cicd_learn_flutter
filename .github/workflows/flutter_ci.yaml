@@ -28,8 +28,15 @@ jobs:
       run: flutter test
 
     - name: Build Apk (only on main branch)
-      if: github.ref == 'refs/heads/main' && failure()
-      run: flutter build apk
+      if: github.ref == 'refs/heads/main'
+      run: flutter build apk --release
+
+    - name: Upload Apk Artifact (only if build succeeds)
+      if: github.ref = 'refs/heads/main' && success()
+      uses: actions/upload-artifact@v3
+      with:
+        name: release-apk
+        path: build/app/outputs/flutter_apk/app_release.apk
 
     - name: PR only Step
       if: github.event_name == 'pull_request'
