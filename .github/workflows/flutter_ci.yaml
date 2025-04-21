@@ -37,7 +37,7 @@ jobs:
       run: flutter test
 
     - name: Build Apk (only on main branch)
-      if: github.ref == 'refs/heads/main' && failure()
+      if: github.ref == 'refs/heads/main'
       run: flutter build apk --release
 
     - name: Upload Apk Artifact (only if build succeeds)
