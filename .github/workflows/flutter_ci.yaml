@@ -71,13 +71,14 @@ jobs:
       if: github.event_name == 'pull_request'
       run: echo "This runs only on pull request"
 
+    # reading version from pubspec.yaml  
     - name: Read version from pubspec.yaml
       id: get_version
       run: |
         version=$(grep '^version:' pubspec.yaml | awk '{ print $2 }')
         echo "version=$version" >> $GITHUB_OUTPUT  
 
-    # releasing the flutter release apk on Github  
+    # releasing the flutter release apk on Github using the pubspec.yaml version
     - name: Create Github Release
       if: github.ref == 'refs/heads/main'
       uses: softprops/action-gh-release@v1
