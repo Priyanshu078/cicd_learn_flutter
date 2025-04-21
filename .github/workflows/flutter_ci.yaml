@@ -50,6 +50,7 @@ jobs:
 
     # running test in test directory   
     - name: Run tests
+      if: github.ref == 'refs/heads/main'
       run: flutter test
 
     # building release apk only if the commit is on main branch
