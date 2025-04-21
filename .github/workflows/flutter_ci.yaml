@@ -36,7 +36,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: release-apk
-        path: build/app/outputs/flutter_apk/app_release.apk
+        path: build/app/outputs/flutter-apk/app-release.apk
 
     - name: PR only Step
       if: github.event_name == 'pull_request'
