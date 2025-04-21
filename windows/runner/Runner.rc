@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "cicd_learn" "\0"
+            VALUE "FileDescription", "cicdlearn" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "cicd_learn" "\0"
+            VALUE "InternalName", "cicdlearn" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2025 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "cicd_learn.exe" "\0"
-            VALUE "ProductName", "cicd_learn" "\0"
+            VALUE "OriginalFilename", "cicdlearn.exe" "\0"
+            VALUE "ProductName", "cicdlearn" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

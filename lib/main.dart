@@ -1,4 +1,4 @@
-import 'package:cicd_learn/counter.dart';
+import 'package:cicdlearn/counter.dart';
 import 'package:flutter/material.dart';
 
 void main() {

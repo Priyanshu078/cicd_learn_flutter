@@ -1,4 +1,4 @@
-package com.example.cicd_learn
+package com.example.cicdlearn
 
 import io.flutter.embedding.android.FlutterActivity
 

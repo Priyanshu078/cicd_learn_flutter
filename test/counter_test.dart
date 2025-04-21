@@ -1,4 +1,4 @@
-import 'package:cicd_learn/counter.dart';
+import 'package:cicdlearn/counter.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

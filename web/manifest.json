@@ -1,6 +1,6 @@
 {
-    "name": "cicd_learn",
-    "short_name": "cicd_learn",
+    "name": "cicdlearn",
+    "short_name": "cicdlearn",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
