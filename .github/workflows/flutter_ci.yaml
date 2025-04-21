@@ -32,7 +32,7 @@ jobs:
       run: flutter build apk --release
 
     - name: Upload Apk Artifact (only if build succeeds)
-      if: github.ref = 'refs/heads/main' && success()
+      if: github.ref == 'refs/heads/main' && success()
       uses: actions/upload-artifact@v3
       with:
         name: release-apk
