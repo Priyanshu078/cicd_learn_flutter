@@ -71,7 +71,7 @@ jobs:
       if: github.event_name == 'pull_request'
       run: echo "This runs only on pull request"
 
-    # releasing the flutter release apk on github  
+    # releasing the flutter release apk on Github  
     - name: Create Github Release
       if: github.ref == 'refs/heads/main'
       uses: softprops/action-gh-release@v1
