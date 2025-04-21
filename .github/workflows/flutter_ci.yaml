@@ -2,7 +2,7 @@ name: Flutter CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, test ]
 
 jobs:
   checkAndBuildApk:
@@ -25,5 +25,6 @@ jobs:
     - name: Run tests
       run: flutter test
 
-    - name: Build Apk
-      run: flutter build apk
+    - name: Build Apk (only on main branch)
+      if: github.ref == 'refs/heads/main'
+      run: flutter build apk  
