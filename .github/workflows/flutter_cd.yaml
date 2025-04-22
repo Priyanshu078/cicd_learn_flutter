@@ -1,0 +1,12 @@
+name: Flutter CD
+
+on:
+  push: [ main ]
+
+jobs:
+  deployOnFirebase:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout Code
+      uses: actions/checkout@v3
