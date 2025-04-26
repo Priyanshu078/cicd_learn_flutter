@@ -1,12 +1,38 @@
 name: Flutter CD
 
 on:
-  push: [ main ]
+  workflow_run:
+    workflows: [ "Flutter CI" ]
+    types:
+    - completed
+    branches:
+    - main
 
 jobs:
-  deployOnFirebase:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion = 'success' }}
     runs-on: ubuntu-latest
     steps:
 
-    - name: Checkout Code
-      uses: actions/checkout@v3
+    - name: Download APK Artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: release-apk
+        path: build/app/outputs/flutter-apk/
+
+    # reading version from pubspec.yaml  
+    - name: Read version from pubspec.yaml
+      id: get_version
+      run: |
+        version=$(grep '^version:' pubspec.yaml | awk '{ print $2 }')
+        echo "version=$version" >> $GITHUB_OUTPUT  
+
+    # releasing the flutter release apk on Github using the pubspec.yaml version
+    - name: Create Github Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ steps.get_version.outputs.version }}
+        name: Release ${{ steps.get_version.outputs.version }}
+        files: build/app/outputs/flutter-apk/app-release.apk
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
