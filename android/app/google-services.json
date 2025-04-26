@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "813097270024",
+    "project_id": "cicd-learn-flutter",
+    "storage_bucket": "cicd-learn-flutter.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813097270024:android:9eba15cc9426fcb29e4abd",
+        "android_client_info": {
+          "package_name": "com.example.cicdlearn"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCn4jVpNZF4FD8fdfQyoiTL7RYz0XZw580"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
