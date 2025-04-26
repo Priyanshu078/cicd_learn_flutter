@@ -15,14 +15,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # # caching flutter sdk  
-    # - name: Cache Flutter Sdk
-    #   uses: actions/cache@v3
-    #   with:
-    #     path: /opt/hostedtoolcache/flutter
-    #     key: ${{ runner.os }}-flutter-sdk-3.29.0
-    #     restore-keys: |
-    #       ${{ runner.os }}-flutter-sdk-
+    # caching flutter sdk  
+    - name: Cache Flutter Sdk
+      uses: actions/cache@v3
+      with:
+        path: /opt/hostedtoolcache/flutter
+        key: ${{ runner.os }}-flutter-sdk-3.29.0
+        restore-keys: |
+          ${{ runner.os }}-flutter-sdk-
 
     #downloading and setting up flutter  
     - name: Set up Flutter
@@ -30,15 +30,15 @@ jobs:
       with:
         flutter-version: '3.29.0'
 
-    # # caching pub dependencies
-    # - name: Cache Dependencies
-    #   uses: actions/cache@v3
-    #   with:
-    #     path: |
-    #       ~/.pub-cache
-    #     key: ${{ runner.os }}-flutter-${{ hashFiles('**/pubspec.yaml') }}
-    #     restore-keys: |
-    #       ${{ runner.os }}-flutter-    
+    # caching pub dependencies
+    - name: Cache Dependencies
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.pub-cache
+        key: ${{ runner.os }}-flutter-${{ hashFiles('**/pubspec.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-flutter-    
 
     # installing dependencies      
     - name: Install dependencies
@@ -72,4 +72,4 @@ jobs:
       run: echo "This runs only on pull request"
 
     - name: List Files Before Upload
-    run: ls build/app/outputs/flutter_apk/  
+      run: ls build/app/outputs/flutter_apk/
