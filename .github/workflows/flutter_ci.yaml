@@ -70,3 +70,6 @@ jobs:
     - name: PR only Step
       if: github.event_name == 'pull_request'
       run: echo "This runs only on pull request"
+
+    - name: List Files Before Upload
+    run: ls build/app/outputs/flutter_apk/  
