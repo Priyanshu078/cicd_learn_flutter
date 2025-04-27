@@ -29,6 +29,16 @@ jobs:
       with:
         name: release-apk
         path: build/app/outputs/flutter-apk/
+      continue-on-error: true
+
+    - name: Retry download if first attempt failed
+      if: failure()
+      run: |
+        echo "Retrying download after short wait..."
+        sleep 10
+        gh run download -n release-apk -D build/app/outputs/flutter-apk/
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     # reading version from pubspec.yaml  
     - name: Read version from pubspec.yaml
