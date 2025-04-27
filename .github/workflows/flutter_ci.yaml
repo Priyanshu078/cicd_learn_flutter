@@ -87,6 +87,9 @@ jobs:
         name: release-apk
         path: build/app/outputs/flutter-apk/
 
+    - name: list files inside it
+      run: ls build/app/outputs/flutter-apk/
+
     - name: Checkout code
       uses: actions/checkout@v3
 
