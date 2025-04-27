@@ -17,8 +17,8 @@ jobs:
     - name: Download APK Artifact
       uses: actions/download-artifact@v4
       with:
-        name: app-release
-        path: build/app/outputs/flutter-apk/
+        name: release-apk
+        path: build/app/outputs/flutter-apk/app-release.apk
 
     # reading version from pubspec.yaml  
     - name: Read version from pubspec.yaml
