@@ -21,9 +21,6 @@ jobs:
         echo "Conclusion of triggering workflow: ${{ github.event.workflow_run.conclusion }}"
         echo "Branch: ${{ github.event.workflow_run.head_branch }}"
 
-    - name: List Files Before Upload
-      run: ls build/app/outputs/flutter-apk/
-
     - name: Download APK Artifact
       uses: actions/download-artifact@v4
       with:
