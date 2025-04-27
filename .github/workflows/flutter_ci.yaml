@@ -87,6 +87,9 @@ jobs:
         name: release-apk
         path: build/app/outputs/flutter-apk/
 
+    - name: Checkout code
+      uses: actions/checkout@v3
+
     # reading version from pubspec.yaml  
     - name: Read version from pubspec.yaml
       id: get_version
