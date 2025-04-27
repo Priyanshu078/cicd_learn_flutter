@@ -56,7 +56,7 @@ jobs:
     # building release apk only if the commit is on main branch
     - name: Build Apk (only on main branch)
       if: github.ref == 'refs/heads/main'
-      run: flutter build apk --release
+      run: flutter build apk
 
     # uploading release apk only if the commit is on main branch and build succeed 
     - name: Upload Apk Artifact (only if build succeeds)
