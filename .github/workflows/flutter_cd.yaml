@@ -14,6 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+    - name: List Files Before Upload
+      run: ls build/app/outputs/flutter-apk/
+
     - name: Download APK Artifact
       uses: actions/download-artifact@v4
       with:
