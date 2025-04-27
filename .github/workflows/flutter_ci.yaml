@@ -81,6 +81,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        clean: flase
+
     - name: Download APK Artifact
       uses: actions/download-artifact@v4
       with:
@@ -89,9 +94,6 @@ jobs:
 
     - name: list files inside it
       run: ls build/app/outputs/flutter-apk/
-
-    - name: Checkout code
-      uses: actions/checkout@v3
 
     # reading version from pubspec.yaml  
     - name: Read version from pubspec.yaml
