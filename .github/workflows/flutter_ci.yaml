@@ -76,7 +76,7 @@ jobs:
 
   # deploying the apk
   deploy:
-    need: checkAndBuildApk
+    needs: checkAndBuildApk
     if: github.ref == 'refs/heads/main' && success()
     runs-on: ubuntu-latest
     steps:
