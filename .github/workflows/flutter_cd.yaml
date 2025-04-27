@@ -5,35 +5,43 @@ on:
     workflows: [ "Flutter CI" ]
     types:
     - completed
-    branches:
-    - main
 
 jobs:
   deploy:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
-
+    permissions:
+      actions: read
+      contents: write
     steps:
+
+    # Check out the repo (IMPORTANT)
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    # Download the artifact (IMPORTANT: without custom path)
     - name: Download APK Artifact
       uses: actions/download-artifact@v4
       with:
         name: release-apk
-        path: ./artifact-download/
 
-    - name: List downloaded files
-      run: ls -R ./artifact-download/
+    # List files to confirm download
+    - name: List Files
+      run: ls -R
 
+    # Read version
     - name: Read version from pubspec.yaml
       id: get_version
       run: |
         version=$(grep '^version:' pubspec.yaml | awk '{ print $2 }')
         echo "version=$version" >> $GITHUB_OUTPUT
 
+    # Release
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v1
       with:
         tag_name: ${{ steps.get_version.outputs.version }}
         name: Release ${{ steps.get_version.outputs.version }}
-        files: ./artifact-download/app-release.apk
+        files: release-apk/app-release.apk
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
